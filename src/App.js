@@ -1,10 +1,16 @@
+import { RouterProvider } from "react-router-dom";
+import AppLayout from "./components/AppLayout";
+import appRoutes from "./utils.js/Routes";
+import { Provider } from "react-redux";
+import appStore from "./utils.js/store";
+
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl underline text-red-700 font-semibold">
-        Namaste DevTinder!!
-      </h1>
-    </div>
+    <Provider store={appStore}>
+      <RouterProvider router={appRoutes}>
+        <AppLayout />
+      </RouterProvider>
+    </Provider>
   );
 }
 
