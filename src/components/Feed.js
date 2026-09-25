@@ -7,6 +7,7 @@ import { addFeedUser } from "../utils.js/feedSlice";
 
 const Feed = () => {
   const dispatch = useDispatch();
+  const loggedInuser = useSelector((store) => store.user);
   const feedUsers = useSelector((store) => store.feed);
 
   const getFeedUsers = async () => {
@@ -21,7 +22,7 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    if (!feedUsers) {
+    if (!feedUsers && loggedInuser) {
       getFeedUsers();
     }
   }, []);

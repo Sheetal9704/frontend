@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { API, BASE_URL } from "../utils.js/constants";
 import { removeUser } from "../utils.js/userSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { deleteFeed } from "../utils.js/feedSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const Header = () => {
     try {
       await axios.get(BASE_URL + API.LOGOUT, { withCredentials: true });
       dispatch(removeUser());
+      dispatch(deleteFeed());
       navigate(API.LOGIN);
     } catch (err) {
       console.error(err.response?.data || err.message);
@@ -23,7 +25,7 @@ const Header = () => {
     <div>
       <div className="navbar bg-base-200 shadow-sm">
         <div className="flex-1">
-          <Link to="/" className="btn text-xl">
+          <Link to={user ? "/" : "/login"} className="btn text-xl">
             DevTinder
           </Link>
         </div>
