@@ -17,7 +17,7 @@ const Header = () => {
       dispatch(deleteFeed());
       navigate(API.LOGIN);
     } catch (err) {
-      console.error(err.response?.data || err.message);
+      console.error(err.response?.data?.message || err.response?.data);
     }
   };
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { API, BASE_URL } from "../utils.js/constants";
 import UserCard from "./UserCard";
 import axios from "axios";
@@ -32,7 +32,11 @@ const Feed = () => {
   if (feedUsers.length === 0) {
     return <h3>No New Users Found!</h3>;
   }
-  return <UserCard user={feedUsers[0]} />;
+  return (
+    <div className="flex justify-center my-12">
+      <UserCard user={feedUsers[0]} />
+    </div>
+  );
 };
 
 export default Feed;
