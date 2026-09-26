@@ -14,7 +14,6 @@ const ConnectionRequest = () => {
       const res = await axios.get(BASE_URL + API.CONN_REQ, {
         withCredentials: true,
       });
-      console.log(res.data);
       dispatch(addRequests(res.data.data));
     } catch (err) {
       console.log(err.response?.data || err.response?.data?.message);

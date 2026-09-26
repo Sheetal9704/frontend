@@ -7,7 +7,6 @@ import { addFeedUser } from "../utils.js/feedSlice";
 
 const Feed = () => {
   const dispatch = useDispatch();
-  const loggedInuser = useSelector((store) => store.user);
   const feedUsers = useSelector((store) => store.feed);
 
   const getFeedUsers = async () => {
@@ -22,15 +21,13 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    if (!feedUsers && loggedInuser) {
-      getFeedUsers();
-    }
+    getFeedUsers();
   }, []);
 
   if (!feedUsers) return;
 
   if (feedUsers.length === 0) {
-    return <h3>No New Users Found!</h3>;
+    return <h1 className="text-lg text-center mt-14">No New Users Found!</h1>;
   }
   return (
     <div className="flex justify-center my-12">

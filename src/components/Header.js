@@ -4,6 +4,8 @@ import { API, BASE_URL } from "../utils.js/constants";
 import { removeUser } from "../utils.js/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteFeed } from "../utils.js/feedSlice";
+import { removeConnection } from "../utils.js/connectionSlice";
+import { removeRequest } from "../utils.js/requestSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,8 @@ const Header = () => {
       await axios.get(BASE_URL + API.LOGOUT, { withCredentials: true });
       dispatch(removeUser());
       dispatch(deleteFeed());
+      dispatch(removeConnection());
+      dispatch(removeRequest());
       navigate(API.LOGIN);
     } catch (err) {
       console.error(err.response?.data?.message || err.response?.data);

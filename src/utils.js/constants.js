@@ -8,5 +8,5 @@ export const API = {
   VIEW_PROFILE: "/profile/view",
   CHANGE_PWD: "/profile/forgotPassword",
   CONNECTIONS: "/user/connections",
-  CONN_REQ: "/user/pendingRequests",
+  CONN_REQ: "/user/review/requests",
 };
