@@ -13,6 +13,7 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const handleLogin = async () => {
+    setError("");
     try {
       const userData = await axios.post(
         BASE_URL + API.LOGIN,

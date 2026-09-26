@@ -5,4 +5,7 @@ export const API = {
   LOGOUT: "/logout",
   FEED: "/feed",
   EDIT_PROFILE: "/profile/edit",
+  VIEW_PROFILE: "/profile/view",
+  CHANGE_PWD: "/profile/forgotPassword",
+  CONNECTIONS: "/user/connections",
 };

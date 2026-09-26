@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import UserCard from "./UserCard";
 import axios from "axios";
 import { API, BASE_URL } from "../utils.js/constants";
@@ -18,6 +18,7 @@ const EditProfile = ({ profileUser }) => {
   const [showToast, setShowToast] = useState(false);
 
   const handleEditProfile = async () => {
+    setError("");
     try {
       const userData = await axios.patch(
         BASE_URL + API.EDIT_PROFILE,
