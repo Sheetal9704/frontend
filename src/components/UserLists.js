@@ -1,4 +1,4 @@
-const UserLists = ({ connections }) => {
+const UserLists = ({ connections, showBtn }) => {
   return (
     <div>
       <h2 className="font-semibold text-center text-2xl mt-4 p-2">
@@ -20,15 +20,17 @@ const UserLists = ({ connections }) => {
               <div className="font-semibold text-lg">
                 {connection.firstName + " " + connection.lastName}
               </div>
-              <div className="text-xs uppercase font-semibold">
+              <div className="text-xs font-semibold">
                 {connection.age} {connection.gender}
               </div>
               <p className="text-xs mt-1 break-words">{connection.about}</p>
             </div>
-            {/* <div className="flex flex-col gap-2 justify-center">
-              <button className="btn btn-sm btn-success">Accept</button>
-              <button className="btn btn-sm btn-error">Ignore</button>
-            </div> */}
+            {showBtn && (
+              <div className="flex flex-col gap-2 justify-center">
+                <button className="btn btn-sm btn-success">Accept</button>
+                <button className="btn btn-sm btn-error">Ignore</button>
+              </div>
+            )}
           </div>
         ))}
       </div>
